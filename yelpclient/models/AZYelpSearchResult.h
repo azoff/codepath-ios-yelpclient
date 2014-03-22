@@ -11,7 +11,7 @@
 
 @interface AZYelpSearchResult : MUJSONResponseObject
 
-@property (nonatomic) NSInteger *total;
+@property (nonatomic, strong) NSNumber *total;
 @property (nonatomic, strong) AZYelpError *error;
 @property (nonatomic, strong) NSArray  *businesses;
 

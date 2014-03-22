@@ -31,4 +31,18 @@
     
 }
 
+- (void)testSearchSanFrancisco
+{
+    NSDictionary *params = @{@"location": @"San Francisco"};
+    [AZYelpClient searchBusinessesWithParams:params success:^(AZYelpSearchResult *result) {
+        XCTAssertTrue(result.total > 0);
+        [self notify:XCTAsyncTestCaseStatusSucceeded];
+    } failure:^(NSError *error) {
+        XCTFail(@"%@", error);
+    }];
+    
+    [self waitForStatus:XCTAsyncTestCaseStatusSucceeded timeout:5];
+    
+}
+
 @end

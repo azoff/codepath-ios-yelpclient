@@ -12,24 +12,15 @@
 
 - (instancetype)init
 {
-    if(self = [super init])
-    {
-        self.propertyMap = @{@"id": @"publicID",
-                             @"display_phone": @"displayPhone",
-                             @"is_claimed":  @"isClaimed",
-                             @"is_closed":  @"isClosed",
-                             @"image_url":  @"imageUrl",
-                             @"mobile_url":  @"mobileUrl",
-                             @"rating_img_url":  @"ratingImgUrl",
-                             @"rating_img_url_large":  @"ratingImgUrlLarge",
-                             @"rating_img_url_small":  @"ratingImgUrlSmall",
-                             @"review_count":  @"reviewCount",
-                             @"snippet_image_url":  @"snippetImageUrl",
-                             @"snippet_text":  @"snippetText",
-                             @"menu_date_updated":  @"menuDateUpdated",
-                             @"menu_provider": @"menuProvider"};
+    if(self = [super init]) {
+        self.propertyMap = @{@"id": @"publicID"};
     }
     return self;
+}
+
+- (Class)classForElementsInArrayProperty:(NSString *)propertyName
+{
+    return nil;
 }
 
 @end

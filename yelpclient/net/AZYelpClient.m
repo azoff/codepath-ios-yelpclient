@@ -7,60 +7,77 @@
 //
 
 #import "AZYelpClient.h"
-#import "AZYelpSearchResult.h"
+#import <GCOAuth.h>
 #import <MUJSONResponseSerializer.h>
+#import <AFHTTPRequestOperationManager.h>
 
-static NSString * const BASE_URL            = @"http://api.yelp.com/v2";
-static NSString * const CONSUMER_KEY        = @"iZUXdq6RAwilIHmpEftp6Q";
-static NSString * const CONSUMER_SECRET     = @"-gIFJcKq8ijCs1-oMkqu_H-ZQiE";
-static NSString * const ACCESS_TOKEN        = @"jJE0y79RhNtzSX6ypydAm-955LkOpfzH";
-static NSString * const ACCESS_TOKEN_SECRET = @"kPD3baTf-pYMlzwL_AVcNeT1y7s";
+static NSString * const API_SCHEME      = @"http";
+static NSString * const API_HOST        = @"api.yelp.com";
+static NSString * const API_VERSION     = @"v2";
+static NSString * const CONSUMER_KEY    = @"iZUXdq6RAwilIHmpEftp6Q";
+static NSString * const CONSUMER_SECRET = @"-gIFJcKq8ijCs1-oMkqu_H-ZQiE";
+static NSString * const TOKEN           = @"jJE0y79RhNtzSX6ypydAm-955LkOpfzH";
+static NSString * const TOKEN_SECRET    = @"kPD3baTf-pYMlzwL_AVcNeT1y7s";
+
+static AZYelpClient *_sharedClient;
 
 @implementation AZYelpClient
 
-- (id)init
-{
-    NSURL *baseUrl = [NSURL URLWithString:BASE_URL];
-    self = [self initWithBaseURL:baseUrl consumerKey:CONSUMER_KEY consumerSecret:CONSUMER_SECRET];
-    [self.requestSerializer saveAccessToken:[BDBOAuthToken tokenWithToken:ACCESS_TOKEN secret:ACCESS_TOKEN_SECRET expiration:nil]];
-    return self;
-}
-
-- (void)searchParameters:(NSDictionary *)parameters
-                                     success:(void (^)(id))success
++ (void)searchBusinessesWithParams:(NSDictionary *)params
+                                     success:(void (^)(AZYelpSearchResult *))success
                                      failure:(void (^)(NSError *))failure
 {
-    [self GET:@"search" responseObjectClass:[AZYelpSearchResult class] parameters:parameters success:success failure:failure];
+    [self getResponseWithObjectClass:[AZYelpSearchResult class]
+                                path:@"search"
+                          parameters:params
+                             success:^(id responseObject) {
+                                 AZYelpSearchResult* result = (AZYelpSearchResult*) responseObject;
+                                 if (!result.error) return success(result);
+                                 else failure([result.error nativeError]);
+                             }
+                             failure: failure];
 }
 
-- (void)GET:(NSString *)methodPath
-            responseObjectClass:(Class)responseObjectClass
-                     parameters:(NSDictionary *)parameters
-                        success:(void (^)(id))success
-                        failure:(void (^)(NSError *))failure
+
++ (void)getResponseWithObjectClass:(Class)responseObjectClass
+                              path:(NSString *)methodPath
+                        parameters:(NSDictionary *)GETParameters
+                           success:(void (^)(id))success
+                           failure:(void (^)(NSError *))failure
 {
-    NSError *error;
-    NSString *URLString = [[NSURL URLWithString:methodPath relativeToURL:self.baseURL] absoluteString];
-    NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:&error];
     
-    if (error) return failure(error);
+    // sign the request
+    NSString *path = [NSString stringWithFormat:@"/%@/%@", API_VERSION, methodPath];
+    NSURLRequest *request = [GCOAuth URLRequestForPath:path
+                                         GETParameters:GETParameters
+                                                scheme:API_SCHEME
+                                                  host:API_HOST
+                                           consumerKey:CONSUMER_KEY
+                                        consumerSecret:CONSUMER_SECRET
+                                           accessToken:TOKEN
+                                           tokenSecret:TOKEN_SECRET];
     
-    NSURLSessionDataTask *task = [self dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-        if (error != nil) return failure(error);
-        else success(responseObject);
-    }];
+    // set up the response handler
+    id responseSerializer = [[MUJSONResponseSerializer alloc] init];
+    id acceptCodes = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(200, 400)];
+    [responseSerializer setResponseObjectClass:responseObjectClass];
+    [responseSerializer setAcceptableStatusCodes:acceptCodes];
     
-    //MUJSONResponseSerializer * responseSerializer = [[MUJSONResponseSerializer alloc] init];
-    //[task setResponseSerializer:responseSerializer];
-    //[responseSerializer setResponseObjectClass:responseObjectClass];
+    // create the HTTP client
+    AFHTTPRequestOperationManager *client = [[AFHTTPRequestOperationManager alloc] init];
+    [client setResponseSerializer:responseSerializer];
     
-    [task resume];
+    // issue the request
+    [client.operationQueue addOperation:[client HTTPRequestOperationWithRequest:request
+        success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            success(responseObject);
+        }
+        failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }
+     ]];
     
 }
 
-+ (instancetype)client
-{
-    return [[self alloc] init];
-}
 
 @end

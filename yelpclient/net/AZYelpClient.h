@@ -5,16 +5,12 @@
 //  Created by Jonathan Azoff on 3/20/14.
 //  Copyright (c) 2014 Jonathan Azoff. All rights reserved.
 //
-#import "BDBOAuth1SessionManager.h"
+#import "AZYelpSearchResult.h"
 
-@interface AZYelpClient : BDBOAuth1SessionManager
+@interface AZYelpClient : NSObject
 
-- (id)init;
-
-- (void)searchParameters:(NSDictionary *)parameters
-                 success:(void (^)(id))success
-                 failure:(void (^)(NSError *))failure;
-
-+ (instancetype)client;
++ (void)searchBusinessesWithParams:(NSDictionary *)params
+                           success:(void (^)(AZYelpSearchResult *))success
+                           failure:(void (^)(NSError *))failure;
 
 @end

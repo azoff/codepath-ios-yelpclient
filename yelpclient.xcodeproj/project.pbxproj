@@ -11,7 +11,7 @@
 		C981833118DAD06A00E2BA7B /* AZYelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C981833018DAD06A00E2BA7B /* AZYelpClient.m */; };
 		C981833618DBB80400E2BA7B /* AZYelpBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = C981833518DBB80400E2BA7B /* AZYelpBusiness.m */; };
 		C981833918DC0DDE00E2BA7B /* AZYelpSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C981833818DC0DDE00E2BA7B /* AZYelpSearchResult.m */; };
-		C981833C18DC13C500E2BA7B /* AZYelpLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C981833B18DC13C500E2BA7B /* AZYelpLocation.m */; };
+		C981834F18DD00F800E2BA7B /* AZYelpError.m in Sources */ = {isa = PBXBuildFile; fileRef = C981834E18DD00F800E2BA7B /* AZYelpError.m */; };
 		C9DCDB7818DAAE5C006E587F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7718DAAE5B006E587F /* Foundation.framework */; };
 		C9DCDB7A18DAAE5C006E587F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */; };
 		C9DCDB7C18DAAE5C006E587F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7B18DAAE5C006E587F /* UIKit.framework */; };
@@ -45,8 +45,8 @@
 		C981833518DBB80400E2BA7B /* AZYelpBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpBusiness.m; path = models/AZYelpBusiness.m; sourceTree = "<group>"; };
 		C981833718DC0DDE00E2BA7B /* AZYelpSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpSearchResult.h; path = models/AZYelpSearchResult.h; sourceTree = "<group>"; };
 		C981833818DC0DDE00E2BA7B /* AZYelpSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpSearchResult.m; path = models/AZYelpSearchResult.m; sourceTree = "<group>"; };
-		C981833A18DC13C500E2BA7B /* AZYelpLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpLocation.h; path = models/AZYelpLocation.h; sourceTree = "<group>"; };
-		C981833B18DC13C500E2BA7B /* AZYelpLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpLocation.m; path = models/AZYelpLocation.m; sourceTree = "<group>"; };
+		C981834D18DD00F800E2BA7B /* AZYelpError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpError.h; path = models/AZYelpError.h; sourceTree = "<group>"; };
+		C981834E18DD00F800E2BA7B /* AZYelpError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpError.m; path = models/AZYelpError.m; sourceTree = "<group>"; };
 		C9DCDB7418DAAE5B006E587F /* yelpclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yelpclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DCDB7718DAAE5B006E587F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -106,15 +106,23 @@
 				C981833518DBB80400E2BA7B /* AZYelpBusiness.m */,
 				C981833718DC0DDE00E2BA7B /* AZYelpSearchResult.h */,
 				C981833818DC0DDE00E2BA7B /* AZYelpSearchResult.m */,
-				C981833A18DC13C500E2BA7B /* AZYelpLocation.h */,
-				C981833B18DC13C500E2BA7B /* AZYelpLocation.m */,
+				C981834D18DD00F800E2BA7B /* AZYelpError.h */,
+				C981834E18DD00F800E2BA7B /* AZYelpError.m */,
 			);
 			name = models;
+			sourceTree = "<group>";
+		};
+		C981834C18DCF87800E2BA7B /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 		C9DCDB6B18DAAE5B006E587F = {
 			isa = PBXGroup;
 			children = (
+				C981834C18DCF87800E2BA7B /* Libraries */,
 				C9DCDB7D18DAAE5C006E587F /* yelpclient */,
 				C9DCDB9618DAAE5C006E587F /* yelpclientTests */,
 				C9DCDB7618DAAE5B006E587F /* Frameworks */,
@@ -325,7 +333,7 @@
 				C9DCDB8418DAAE5C006E587F /* main.m in Sources */,
 				C9DCDB8818DAAE5C006E587F /* AZAppDelegate.m in Sources */,
 				C981833918DC0DDE00E2BA7B /* AZYelpSearchResult.m in Sources */,
-				C981833C18DC13C500E2BA7B /* AZYelpLocation.m in Sources */,
+				C981834F18DD00F800E2BA7B /* AZYelpError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

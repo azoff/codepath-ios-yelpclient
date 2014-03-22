@@ -17,39 +17,18 @@
 
 @implementation yelpclientTests
 
-- (void)setUp
+- (void)testSearchNoParams
 {
-    [super setUp];
-    _client = [AZYelpClient client];
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testNotNil
-{
-    XCTAssertNotNil(_client);
-}
-
-- (void)testAuthorized
-{
-    XCTAssertTrue(_client.isAuthorized);
-}
-
-- (void)testSearch
-{
-    [_client searchParameters:nil success:^(id response) {
-        NSLog(@"%@", response);
+    
+    [AZYelpClient searchBusinessesWithParams:nil success:^(AZYelpSearchResult *result) {
+        XCTFail(@"No business data should be received");
+    } failure:^(NSError *error) {
+        XCTAssertEqualObjects([error.userInfo valueForKey:@"type"], @"UNSPECIFIED_LOCATION", @"%@", error);
         [self notify:XCTAsyncTestCaseStatusSucceeded];
-    } failure:^(NSError *err) {
-        NSLog(@"%@", err);
-        [self notify:XCTAsyncTestCaseStatusFailed];
     }];
     
     [self waitForStatus:XCTAsyncTestCaseStatusSucceeded timeout:5];
+    
 }
 
 @end

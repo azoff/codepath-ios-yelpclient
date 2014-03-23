@@ -138,7 +138,7 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
                                               options:NSStringDrawingUsesLineFragmentOrigin
                                            attributes:@{NSFontAttributeName: _nameFont}
                                               context:nil];
-    return rect.size.height + 79;
+    return rect.size.height + 74;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil

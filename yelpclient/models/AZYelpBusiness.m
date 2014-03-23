@@ -15,7 +15,8 @@
     if(self = [super init]) {
         self.propertyMap = @{
             @"id": @"publicID",
-            @"image_url": @"thumbURLString"
+            @"image_url": @"thumbURLString",
+            @"rating_img_url": @"ratingImageURLString"
         };
     }
     return self;
@@ -24,6 +25,11 @@
 - (NSURLRequest *)thumbRequest
 {
     return [NSURLRequest requestWithURL:[NSURL URLWithString:self.thumbURLString]];
+}
+
+- (NSURLRequest *)ratingImageRequest
+{
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:self.ratingImageURLString]];
 }
 
 - (Class)classForElementsInArrayProperty:(NSString *)propertyName

@@ -11,6 +11,7 @@
 @interface AZYelpBusinessTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *ratingImageView;
 
 @end
 
@@ -21,6 +22,11 @@
     self.business = business;
     self.nameLabel.text = business.name;
     [self.thumbImageView setImageWithURLRequest:business.thumbRequest placeholderImage:nil success:nil
+        failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+            errorHandler(error);
+        }
+    ];
+    [self.ratingImageView setImageWithURLRequest:business.ratingImageRequest placeholderImage:nil success:nil
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             errorHandler(error);
         }

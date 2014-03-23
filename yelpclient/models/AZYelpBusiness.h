@@ -13,7 +13,9 @@
 @property (nonatomic, strong) NSString *publicID;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *thumbURLString;
+@property (nonatomic, strong) NSString *ratingImageURLString;
 
 - (NSURLRequest *)thumbRequest;
+- (NSURLRequest *)ratingImageRequest;
 
 @end

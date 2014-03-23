@@ -7,6 +7,7 @@
 //
 
 #import "MUJSONResponseSerializer.h"
+#import "AZYelpLocation.h"
 
 @interface AZYelpBusiness : MUJSONResponseObject
 
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) NSString *thumbURLString;
 @property (nonatomic, strong) NSString *ratingImageURLString;
 @property (nonatomic, strong) NSNumber *reviewCount;
+@property (nonatomic, strong) AZYelpLocation *location;
 
 - (NSURLRequest *)thumbRequest;
 - (NSURLRequest *)ratingImageRequest;

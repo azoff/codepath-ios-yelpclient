@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AZYelpSearchController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface AZYelpSearchController : UIViewController<UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
 
 @end

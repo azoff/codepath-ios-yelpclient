@@ -22,6 +22,9 @@
 		C981836518DE123900E2BA7B /* AZYelpNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981836318DE123900E2BA7B /* AZYelpNavigationController.m */; };
 		C981836818DE77D700E2BA7B /* AZYelpLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C981836718DE77D700E2BA7B /* AZYelpLocation.m */; };
 		C981836918DE77D700E2BA7B /* AZYelpLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = C981836718DE77D700E2BA7B /* AZYelpLocation.m */; };
+		C981837118DF6C0700E2BA7B /* AZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C981837018DF6C0700E2BA7B /* AZLocationManager.m */; };
+		C981837218DF6C0700E2BA7B /* AZLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C981837018DF6C0700E2BA7B /* AZLocationManager.m */; };
+		C981837418DF727500E2BA7B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C981837318DF727500E2BA7B /* CoreLocation.framework */; };
 		C9DCDB7818DAAE5C006E587F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7718DAAE5B006E587F /* Foundation.framework */; };
 		C9DCDB7A18DAAE5C006E587F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */; };
 		C9DCDB7C18DAAE5C006E587F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7B18DAAE5C006E587F /* UIKit.framework */; };
@@ -67,6 +70,9 @@
 		C981836318DE123900E2BA7B /* AZYelpNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpNavigationController.m; path = controllers/AZYelpNavigationController.m; sourceTree = "<group>"; };
 		C981836618DE77D700E2BA7B /* AZYelpLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpLocation.h; path = models/AZYelpLocation.h; sourceTree = "<group>"; };
 		C981836718DE77D700E2BA7B /* AZYelpLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpLocation.m; path = models/AZYelpLocation.m; sourceTree = "<group>"; };
+		C981836F18DF6C0700E2BA7B /* AZLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZLocationManager.h; path = utils/AZLocationManager.h; sourceTree = "<group>"; };
+		C981837018DF6C0700E2BA7B /* AZLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZLocationManager.m; path = utils/AZLocationManager.m; sourceTree = "<group>"; };
+		C981837318DF727500E2BA7B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C9DCDB7418DAAE5B006E587F /* yelpclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yelpclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DCDB7718DAAE5B006E587F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -90,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C981837418DF727500E2BA7B /* CoreLocation.framework in Frameworks */,
 				C9DCDB7A18DAAE5C006E587F /* CoreGraphics.framework in Frameworks */,
 				C9DCDB7C18DAAE5C006E587F /* UIKit.framework in Frameworks */,
 				C9DCDB7818DAAE5C006E587F /* Foundation.framework in Frameworks */,
@@ -163,6 +170,15 @@
 			name = controllers;
 			sourceTree = "<group>";
 		};
+		C981836A18DF6BBF00E2BA7B /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				C981836F18DF6C0700E2BA7B /* AZLocationManager.h */,
+				C981837018DF6C0700E2BA7B /* AZLocationManager.m */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
 		C9DCDB6B18DAAE5B006E587F = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +203,7 @@
 		C9DCDB7618DAAE5B006E587F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C981837318DF727500E2BA7B /* CoreLocation.framework */,
 				C9DCDB7718DAAE5B006E587F /* Foundation.framework */,
 				C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */,
 				C9DCDB7B18DAAE5C006E587F /* UIKit.framework */,
@@ -199,6 +216,7 @@
 		C9DCDB7D18DAAE5C006E587F /* yelpclient */ = {
 			isa = PBXGroup;
 			children = (
+				C981836A18DF6BBF00E2BA7B /* utils */,
 				C981835618DE0B1F00E2BA7B /* controllers */,
 				C981835018DD3E4A00E2BA7B /* views */,
 				C981833318DBB7A500E2BA7B /* models */,
@@ -379,6 +397,7 @@
 			files = (
 				C981835418DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m in Sources */,
 				C981836418DE123900E2BA7B /* AZYelpNavigationController.m in Sources */,
+				C981837118DF6C0700E2BA7B /* AZLocationManager.m in Sources */,
 				C981833618DBB80400E2BA7B /* AZYelpBusiness.m in Sources */,
 				C981833118DAD06A00E2BA7B /* AZYelpClient.m in Sources */,
 				C9DCDB8418DAAE5C006E587F /* main.m in Sources */,
@@ -398,6 +417,7 @@
 				C981836918DE77D700E2BA7B /* AZYelpLocation.m in Sources */,
 				C981836518DE123900E2BA7B /* AZYelpNavigationController.m in Sources */,
 				C981835B18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */,
+				C981837218DF6C0700E2BA7B /* AZLocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

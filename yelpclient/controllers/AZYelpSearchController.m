@@ -10,6 +10,7 @@
 #import "AZYelpBusinessTableViewCell.h"
 #import "AZYelpBusiness.h"
 #import "AZYelpClient.h"
+#import "AZLocationManager.h"
 #import "MBProgressHUD.h"
 
 static NSInteger const LIMIT     = 20;
@@ -24,6 +25,7 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
 @property (nonatomic) NSMutableArray *results;
 @property (nonatomic) NSString *term;
 @property (nonatomic) UIFont *nameFont;
+@property (nonatomic) CLLocation *location;
 
 @end
 
@@ -66,17 +68,19 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
 
 - (NSDictionary *)getParams
 {
+    CLLocationCoordinate2D location = self.location.coordinate;
     return @{
         @"term": self.term,
         @"limit": [[NSNumber numberWithInt:LIMIT] stringValue],
         @"offset": [[NSNumber numberWithInteger:self.offset] stringValue],
-        @"location": @"San Francisco" //TODO: change this to use loc
+        @"ll": [NSString stringWithFormat:@"%f,%f", location.latitude, location.longitude]
     };
 }
 
 - (void)doSearch
 {
-    if (self.term == nil || self.term.length <= 0)
+    
+    if (self.location == nil || self.term == nil || self.term.length <= 0)
         return [self clearResults];
     
     if (self.total > 0 && [self resultCount] >= self.total)
@@ -141,6 +145,15 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
     return rect.size.height + 74;
 }
 
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    BOOL firstTime = self.location == nil;
+    self.location = newLocation;
+    if (firstTime) [self doSearch];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -161,8 +174,10 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
     self.searchResultsTableView.delegate = self;
     [self.searchResultsTableView registerNib:[UINib nibWithNibName:CELL_NAME bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NAME];
     
-    AZYelpBusinessTableViewCell *dummyCell = (AZYelpBusinessTableViewCell*) [self.searchResultsTableView dequeueReusableCellWithIdentifier:CELL_NAME];
+    AZYelpBusinessTableViewCell *dummyCell = [self.searchResultsTableView dequeueReusableCellWithIdentifier:CELL_NAME];
     self.nameFont = dummyCell.nameLabel.font;
+    
+    [AZLocationManager setDelegate:self];
     
     [self clearResults];
     

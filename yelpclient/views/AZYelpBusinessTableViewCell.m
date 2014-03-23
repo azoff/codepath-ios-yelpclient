@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *ratingImageView;
+@property (weak, nonatomic) IBOutlet UILabel *reviewsLabel;
 
 @end
 
@@ -21,6 +22,7 @@
 {
     self.business = business;
     self.nameLabel.text = business.name;
+    self.reviewsLabel.text = [business displayReviewCount];
     [self.thumbImageView setImageWithURLRequest:business.thumbRequest placeholderImage:nil success:nil
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             errorHandler(error);

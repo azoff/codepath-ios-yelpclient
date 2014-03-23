@@ -14,8 +14,10 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *thumbURLString;
 @property (nonatomic, strong) NSString *ratingImageURLString;
+@property (nonatomic, strong) NSNumber *reviewCount;
 
 - (NSURLRequest *)thumbRequest;
 - (NSURLRequest *)ratingImageRequest;
+- (NSString *)displayReviewCount;
 
 @end

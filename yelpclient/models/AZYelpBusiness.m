@@ -16,7 +16,8 @@
         self.propertyMap = @{
             @"id": @"publicID",
             @"image_url": @"thumbURLString",
-            @"rating_img_url": @"ratingImageURLString"
+            @"rating_img_url": @"ratingImageURLString",
+            @"review_count": @"reviewCount",
         };
     }
     return self;
@@ -30,6 +31,12 @@
 - (NSURLRequest *)ratingImageRequest
 {
     return [NSURLRequest requestWithURL:[NSURL URLWithString:self.ratingImageURLString]];
+}
+
+- (NSString *)displayReviewCount
+{
+    NSString *format = [self.reviewCount integerValue] == 1 ? @"%@ Review" : @"%@ Reviews";
+    return [NSString stringWithFormat:format, self.reviewCount];
 }
 
 - (Class)classForElementsInArrayProperty:(NSString *)propertyName

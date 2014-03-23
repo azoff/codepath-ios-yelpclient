@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ratingImageView;
 @property (weak, nonatomic) IBOutlet UILabel *reviewsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *categoriesLabel;
 
 @end
 
@@ -25,6 +26,7 @@
     self.nameLabel.text = business.name;
     self.reviewsLabel.text = [business displayReviewCount];
     self.addressLabel.text = [business.location shortAddress];
+    self.categoriesLabel.text = [business displayCategories];
     [self.thumbImageView setImageWithURLRequest:business.thumbRequest placeholderImage:nil success:nil
         failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
             errorHandler(error);

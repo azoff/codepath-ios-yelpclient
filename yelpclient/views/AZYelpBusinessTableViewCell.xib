@@ -50,10 +50,18 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some, Great, Categories" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZ7-m4-CF9">
+                        <rect key="frame" x="95" y="71" width="308" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="G3x-Gt-Hsh" firstAttribute="top" secondItem="76s-YN-7mz" secondAttribute="bottom" constant="2" id="6LV-UJ-MUJ"/>
                     <constraint firstItem="vQv-gk-pcl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="FfQ-yG-yBR"/>
+                    <constraint firstItem="GZ7-m4-CF9" firstAttribute="leading" secondItem="vQv-gk-pcl" secondAttribute="trailing" constant="10" id="Jbj-cL-8mT"/>
                     <constraint firstItem="GWo-Jh-etS" firstAttribute="top" secondItem="76s-YN-7mz" secondAttribute="bottom" constant="3" id="LQq-YF-e0T"/>
                     <constraint firstItem="76s-YN-7mz" firstAttribute="leading" secondItem="vQv-gk-pcl" secondAttribute="trailing" constant="10" id="RXI-eu-hW7"/>
                     <constraint firstItem="QD4-EJ-GZY" firstAttribute="leading" secondItem="vQv-gk-pcl" secondAttribute="trailing" constant="10" id="RdV-xq-LBU"/>
@@ -61,7 +69,9 @@
                     <constraint firstItem="vQv-gk-pcl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="WLY-kv-gRt"/>
                     <constraint firstItem="QD4-EJ-GZY" firstAttribute="top" secondItem="G3x-Gt-Hsh" secondAttribute="bottom" constant="3" id="Zln-S5-K2V"/>
                     <constraint firstItem="GWo-Jh-etS" firstAttribute="leading" secondItem="G3x-Gt-Hsh" secondAttribute="trailing" constant="5" id="aPa-bn-ZSu"/>
+                    <constraint firstItem="GZ7-m4-CF9" firstAttribute="top" secondItem="QD4-EJ-GZY" secondAttribute="bottom" constant="3" id="bFW-0a-PRk"/>
                     <constraint firstAttribute="trailing" secondItem="QD4-EJ-GZY" secondAttribute="trailing" constant="10" id="d7j-xI-x7c"/>
+                    <constraint firstAttribute="trailing" secondItem="GZ7-m4-CF9" secondAttribute="trailing" constant="10" id="gca-P1-N9Y"/>
                     <constraint firstAttribute="trailing" secondItem="76s-YN-7mz" secondAttribute="trailing" constant="10" id="hDd-Mr-I9p"/>
                     <constraint firstItem="76s-YN-7mz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="riz-89-txZ"/>
                     <constraint firstItem="G3x-Gt-Hsh" firstAttribute="leading" secondItem="vQv-gk-pcl" secondAttribute="trailing" constant="10" id="wGX-YQ-fee"/>
@@ -69,6 +79,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="addressLabel" destination="QD4-EJ-GZY" id="rE0-Dc-a5q"/>
+                <outlet property="categoriesLabel" destination="GZ7-m4-CF9" id="bFC-4e-qd5"/>
                 <outlet property="nameLabel" destination="76s-YN-7mz" id="hll-Oy-ydM"/>
                 <outlet property="ratingImageView" destination="G3x-Gt-Hsh" id="05v-iY-C7M"/>
                 <outlet property="reviewsLabel" destination="GWo-Jh-etS" id="jd3-Ko-jBB"/>

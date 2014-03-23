@@ -17,9 +17,12 @@
 @property (nonatomic, strong) NSString *ratingImageURLString;
 @property (nonatomic, strong) NSNumber *reviewCount;
 @property (nonatomic, strong) AZYelpLocation *location;
+@property (nonatomic, strong) NSArray *categories;
 
 - (NSURLRequest *)thumbRequest;
 - (NSURLRequest *)ratingImageRequest;
 - (NSString *)displayReviewCount;
+- (NSString *)displayCategories;
+- (NSArray *)categoryNames;
 
 @end

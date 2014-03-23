@@ -39,9 +39,18 @@
     return [NSString stringWithFormat:format, self.reviewCount];
 }
 
-- (Class)classForElementsInArrayProperty:(NSString *)propertyName
+- (NSString *)displayCategories
 {
-    return nil;
+    return [[self categoryNames] componentsJoinedByString:@", "];
+}
+
+- (NSArray *)categoryNames
+{
+    NSMutableArray *names = [[NSMutableArray alloc] init];
+    [self.categories enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [names addObject:obj[0]];
+    }];
+    return names;
 }
 
 @end

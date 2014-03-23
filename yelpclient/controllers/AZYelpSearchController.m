@@ -13,13 +13,15 @@
 #import "AZLocationManager.h"
 #import "MBProgressHUD.h"
 
-static NSInteger const LIMIT     = 20;
-static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
+static NSInteger const SCROLL_THRESHOLD = 5;
+static NSInteger const LIMIT            = 20;
+static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
 
 @interface AZYelpSearchController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *searchResultsTableView;
 
+@property (nonatomic) BOOL searching;
 @property (nonatomic) NSInteger offset;
 @property (nonatomic) NSInteger total;
 @property (nonatomic) NSMutableArray *results;
@@ -42,23 +44,27 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
 
 - (void)renderResults
 {
-    [self hideLoader];
+    [self endSearching:YES];
     [self.searchResultsTableView reloadData];
 }
 
-- (void)showLoader
+- (void)startSearching:(BOOL)withLoader
 {
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.searching = true;
+    if (withLoader)
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
-- (void)hideLoader
+- (void)endSearching:(BOOL)withLoader
 {
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    self.searching = false;
+    if (withLoader)
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)showError:(NSError *)error
 {
-    [self hideLoader];
+    [self endSearching:YES];
     [[[UIAlertView alloc] initWithTitle:@"Oh No!"
                               message:error.localizedDescription
                              delegate:self
@@ -77,18 +83,19 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
     };
 }
 
-- (void)doSearch
+- (void)doSearch:(BOOL)showIndicator
 {
     
-    if (self.location == nil || self.term == nil || self.term.length <= 0)
-        return [self clearResults];
-    
-    if (self.total > 0 && [self resultCount] >= self.total)
+    // avoid searching if...
+    if (self.searching ||                                                    // already searching
+        self.location == nil || self.term == nil || self.term.length <= 0 || // missing paraneters
+        (self.total > 0 && [self resultCount] >= self.total))                // at the end of search
         return;
     
-    [self showLoader];
+    [self startSearching:showIndicator];
     [AZYelpClient searchBusinessesWithParams:[self getParams] success:^(AZYelpSearchResult *result) {
         [self processResult:result];
+        [self renderResults];
     } failure:^(NSError *error) {
         [self showError:error];
     }];
@@ -100,7 +107,6 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
     self.total = [result.total integerValue];
     [self.results addObjectsFromArray:result.businesses];
     self.offset = self.results.count;
-    [self renderResults];
 }
 
 - (NSInteger)resultCount
@@ -120,8 +126,9 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.item >= [self resultCount])
-        return nil;
+    
+    if (self.results.count < self.total && indexPath.item >= (self.results.count - SCROLL_THRESHOLD))
+        [self doSearch:NO];
     
     AZYelpBusinessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_NAME forIndexPath:indexPath];
     AZYelpBusiness *business = [self.results objectAtIndex:indexPath.item];
@@ -151,7 +158,7 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
 {
     BOOL firstTime = self.location == nil;
     self.location = newLocation;
-    if (firstTime) [self doSearch];
+    if (firstTime) [self doSearch:YES];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -186,7 +193,7 @@ static NSString *const CELL_NAME = @"AZYelpBusinessTableViewCell";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self doSearch];
+    [self doSearch:YES];
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,5 +11,9 @@
 @interface AZYelpBusiness : MUJSONResponseObject
 
 @property (nonatomic, strong) NSString *publicID;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *thumbURLString;
+
+- (NSURLRequest *)thumbRequest;
 
 @end

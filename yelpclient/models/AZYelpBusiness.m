@@ -13,9 +13,17 @@
 - (instancetype)init
 {
     if(self = [super init]) {
-        self.propertyMap = @{@"id": @"publicID"};
+        self.propertyMap = @{
+            @"id": @"publicID",
+            @"image_url": @"thumbURLString"
+        };
     }
     return self;
+}
+
+- (NSURLRequest *)thumbRequest
+{
+    return [NSURLRequest requestWithURL:[NSURL URLWithString:self.thumbURLString]];
 }
 
 - (Class)classForElementsInArrayProperty:(NSString *)propertyName

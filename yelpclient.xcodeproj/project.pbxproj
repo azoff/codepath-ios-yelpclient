@@ -12,6 +12,14 @@
 		C981833618DBB80400E2BA7B /* AZYelpBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = C981833518DBB80400E2BA7B /* AZYelpBusiness.m */; };
 		C981833918DC0DDE00E2BA7B /* AZYelpSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C981833818DC0DDE00E2BA7B /* AZYelpSearchResult.m */; };
 		C981834F18DD00F800E2BA7B /* AZYelpError.m in Sources */ = {isa = PBXBuildFile; fileRef = C981834E18DD00F800E2BA7B /* AZYelpError.m */; };
+		C981835418DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C981835218DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m */; };
+		C981835518DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981835318DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib */; };
+		C981835A18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981835818DE0BCE00E2BA7B /* AZYelpSearchController.m */; };
+		C981835B18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981835818DE0BCE00E2BA7B /* AZYelpSearchController.m */; };
+		C981835C18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981835918DE0BCE00E2BA7B /* AZYelpSearchController.xib */; };
+		C981835D18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981835918DE0BCE00E2BA7B /* AZYelpSearchController.xib */; };
+		C981836418DE123900E2BA7B /* AZYelpNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981836318DE123900E2BA7B /* AZYelpNavigationController.m */; };
+		C981836518DE123900E2BA7B /* AZYelpNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981836318DE123900E2BA7B /* AZYelpNavigationController.m */; };
 		C9DCDB7818DAAE5C006E587F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7718DAAE5B006E587F /* Foundation.framework */; };
 		C9DCDB7A18DAAE5C006E587F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */; };
 		C9DCDB7C18DAAE5C006E587F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7B18DAAE5C006E587F /* UIKit.framework */; };
@@ -47,6 +55,14 @@
 		C981833818DC0DDE00E2BA7B /* AZYelpSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpSearchResult.m; path = models/AZYelpSearchResult.m; sourceTree = "<group>"; };
 		C981834D18DD00F800E2BA7B /* AZYelpError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpError.h; path = models/AZYelpError.h; sourceTree = "<group>"; };
 		C981834E18DD00F800E2BA7B /* AZYelpError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpError.m; path = models/AZYelpError.m; sourceTree = "<group>"; };
+		C981835118DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpBusinessTableViewCell.h; path = views/AZYelpBusinessTableViewCell.h; sourceTree = "<group>"; };
+		C981835218DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpBusinessTableViewCell.m; path = views/AZYelpBusinessTableViewCell.m; sourceTree = "<group>"; };
+		C981835318DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpBusinessTableViewCell.xib; path = views/AZYelpBusinessTableViewCell.xib; sourceTree = "<group>"; };
+		C981835718DE0BCE00E2BA7B /* AZYelpSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpSearchController.h; path = controllers/AZYelpSearchController.h; sourceTree = "<group>"; };
+		C981835818DE0BCE00E2BA7B /* AZYelpSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpSearchController.m; path = controllers/AZYelpSearchController.m; sourceTree = "<group>"; };
+		C981835918DE0BCE00E2BA7B /* AZYelpSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpSearchController.xib; path = controllers/AZYelpSearchController.xib; sourceTree = "<group>"; };
+		C981836218DE123900E2BA7B /* AZYelpNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpNavigationController.h; path = controllers/AZYelpNavigationController.h; sourceTree = "<group>"; };
+		C981836318DE123900E2BA7B /* AZYelpNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpNavigationController.m; path = controllers/AZYelpNavigationController.m; sourceTree = "<group>"; };
 		C9DCDB7418DAAE5B006E587F /* yelpclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yelpclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DCDB7718DAAE5B006E587F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +135,28 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
+		C981835018DD3E4A00E2BA7B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				C981835118DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.h */,
+				C981835218DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m */,
+				C981835318DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		C981835618DE0B1F00E2BA7B /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C981835718DE0BCE00E2BA7B /* AZYelpSearchController.h */,
+				C981835818DE0BCE00E2BA7B /* AZYelpSearchController.m */,
+				C981835918DE0BCE00E2BA7B /* AZYelpSearchController.xib */,
+				C981836218DE123900E2BA7B /* AZYelpNavigationController.h */,
+				C981836318DE123900E2BA7B /* AZYelpNavigationController.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
 		C9DCDB6B18DAAE5B006E587F = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +193,8 @@
 		C9DCDB7D18DAAE5C006E587F /* yelpclient */ = {
 			isa = PBXGroup;
 			children = (
+				C981835618DE0B1F00E2BA7B /* controllers */,
+				C981835018DD3E4A00E2BA7B /* views */,
 				C981833318DBB7A500E2BA7B /* models */,
 				C981833218DAD3B500E2BA7B /* net */,
 				C9DCDB8618DAAE5C006E587F /* AZAppDelegate.h */,
@@ -276,7 +316,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9DCDB8218DAAE5C006E587F /* InfoPlist.strings in Resources */,
+				C981835C18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */,
 				C9DCDB8A18DAAE5C006E587F /* Images.xcassets in Resources */,
+				C981835518DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9DCDB9B18DAAE5C006E587F /* InfoPlist.strings in Resources */,
+				C981835D18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,10 +371,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C981835418DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m in Sources */,
+				C981836418DE123900E2BA7B /* AZYelpNavigationController.m in Sources */,
 				C981833618DBB80400E2BA7B /* AZYelpBusiness.m in Sources */,
 				C981833118DAD06A00E2BA7B /* AZYelpClient.m in Sources */,
 				C9DCDB8418DAAE5C006E587F /* main.m in Sources */,
 				C9DCDB8818DAAE5C006E587F /* AZAppDelegate.m in Sources */,
+				C981835A18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */,
 				C981833918DC0DDE00E2BA7B /* AZYelpSearchResult.m in Sources */,
 				C981834F18DD00F800E2BA7B /* AZYelpError.m in Sources */,
 			);
@@ -342,6 +388,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9DCDB9D18DAAE5C006E587F /* AZYelpClientTest.m in Sources */,
+				C981836518DE123900E2BA7B /* AZYelpNavigationController.m in Sources */,
+				C981835B18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

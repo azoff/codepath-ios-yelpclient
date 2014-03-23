@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AZYelpNavigationController.h"
 
-@interface AZYelpSearchController : UIViewController<UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
+@interface AZYelpSearchController : UIViewController<UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, AZYelpNavigationSearchHandler>
 
 @end

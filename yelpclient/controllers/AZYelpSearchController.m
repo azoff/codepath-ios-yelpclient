@@ -38,7 +38,7 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     [self.results removeAllObjects];
     self.offset  = 0;
     self.total   = 0;
-    self.term    = @"Lunch";//TODO: use real term
+    self.term    = nil;
     [self renderResults];
 }
 
@@ -95,7 +95,6 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     [self startSearching:showIndicator];
     [AZYelpClient searchBusinessesWithParams:[self getParams] success:^(AZYelpSearchResult *result) {
         [self processResult:result];
-        [self renderResults];
     } failure:^(NSError *error) {
         [self showError:error];
     }];
@@ -107,6 +106,15 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     self.total = [result.total integerValue];
     [self.results addObjectsFromArray:result.businesses];
     self.offset = self.results.count;
+    [self renderResults];
+}
+
+- (BOOL)handleSearchTerm:(NSString *)term
+{
+    [self clearResults];
+    self.term = term;
+    [self doSearch:YES];
+    return NO;
 }
 
 - (NSInteger)resultCount
@@ -164,11 +172,14 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.title = @"Search";
+    if (self)
         self.results = [[NSMutableArray alloc] init];
-    }
     return self;
+}
+
+- (AZYelpNavigationController *)yelpNavigationController
+{
+    return (AZYelpNavigationController *)self.navigationController;
 }
 
 - (void)viewDidLoad
@@ -181,25 +192,24 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     self.searchResultsTableView.delegate = self;
     [self.searchResultsTableView registerNib:[UINib nibWithNibName:CELL_NAME bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NAME];
     
+    // prototype cell for dynamic cell height measurements
     AZYelpBusinessTableViewCell *dummyCell = [self.searchResultsTableView dequeueReusableCellWithIdentifier:CELL_NAME];
     self.nameFont = dummyCell.nameLabel.font;
     
+    // enable location tracking for local search
     [AZLocationManager setDelegate:self];
+    
+    // mark this controller as the handler for navigation bar searches
+    [[self yelpNavigationController] enableSearch:self];
     
     [self clearResults];
     
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    [self doSearch:YES];
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[self yelpNavigationController] disableSearch];
 }
 
 @end

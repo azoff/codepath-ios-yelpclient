@@ -70,8 +70,8 @@
 {
     [super viewDidLoad];
     [self disableSearch];
-    id g = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditing)];
-    [self.view addGestureRecognizer:g];
+    //id g = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditing)];
+    //[self.view addGestureRecognizer:g];
 }
 
 - (IBAction)endEditing

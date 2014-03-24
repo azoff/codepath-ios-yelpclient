@@ -19,6 +19,7 @@ static NSString *const CELL_NAME = @"AZYelpFilterCell";
 @property (nonatomic) NSMutableArray *sectionParams;
 @property (nonatomic) NSMutableArray *sectionOpenStates;
 @property (nonatomic) NSMutableArray *sectionHasToggles;
+@property (nonatomic) BOOL limitCategories;
 @property (nonatomic) NSMutableDictionary *sections;
 @property (weak, nonatomic) IBOutlet UITableView *filterTableView;
 
@@ -39,6 +40,7 @@ static NSString *const CELL_NAME = @"AZYelpFilterCell";
         self.sectionParams     = [NSMutableArray array];
         self.rowNames          = [NSMutableArray array];
         self.rowValues         = [NSMutableArray array];
+        self.limitCategories   = YES;
         [self.sections enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
             [self.sectionNames addObject:[obj valueForKey:@"name"]];
             [self.sectionParams addObject:key];
@@ -92,6 +94,9 @@ static NSString *const CELL_NAME = @"AZYelpFilterCell";
     NSString *sectionValue = [[NSUserDefaults standardUserDefaults] valueForKey:sectionParam];
     if (sectionValue == nil && !toggles) sectionValue = self.rowValues[indexPath.section][0];
     
+    if ([self.sectionParams[indexPath.section] isEqualToString:@"category_filter"] && _limitCategories && indexPath.row == 4)
+        return [cell initWithName:@"   See All..." accessoryType:UITableViewCellAccessoryNone];
+    
     // closed section, use the selected value
     if (![self.sectionOpenStates[indexPath.section] boolValue]) {
         
@@ -141,6 +146,7 @@ static NSString *const CELL_NAME = @"AZYelpFilterCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (![self.sectionOpenStates[section] boolValue]) return 1;
+    if ([self.sectionParams[section] isEqualToString:@"category_filter"] && _limitCategories) return 5;
     NSArray *values = self.rowValues[section];
     return values.count;
 }
@@ -166,22 +172,32 @@ static NSString *const CELL_NAME = @"AZYelpFilterCell";
 {
     
     [self.filterTableView deselectRowAtIndexPath:indexPath animated:YES];
-    if ([self.sectionHasToggles[indexPath.section] boolValue]) return;
     
-    // closed section, open it up
-    if (![self.sectionOpenStates[indexPath.section] boolValue]) {
+    
+    if ([self.sectionHasToggles[indexPath.section] boolValue]) {
         
-        self.sectionOpenStates[indexPath.section] = @YES;
-        
-    // open section, select and close
+        if ([self.sectionParams[indexPath.section] isEqualToString:@"category_filter"] && _limitCategories && indexPath.row == 4)
+            self.limitCategories = NO;
+        else return;
+    
     } else {
         
-        NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *sectionParam = self.sectionParams[indexPath.section];
-        NSString *optionValue = self.rowValues[indexPath.section][indexPath.row];
-        [standardUserDefaults setValue:optionValue forKey:sectionParam];
-        [standardUserDefaults synchronize];
-        self.sectionOpenStates[indexPath.section] = @NO;
+        // closed section, open it up
+        if (![self.sectionOpenStates[indexPath.section] boolValue]) {
+            
+            self.sectionOpenStates[indexPath.section] = @YES;
+            
+            // open section, select and close
+        } else {
+            
+            NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *sectionParam = self.sectionParams[indexPath.section];
+            NSString *optionValue = self.rowValues[indexPath.section][indexPath.row];
+            [standardUserDefaults setValue:optionValue forKey:sectionParam];
+            [standardUserDefaults synchronize];
+            self.sectionOpenStates[indexPath.section] = @NO;
+            
+        }
         
     }
     

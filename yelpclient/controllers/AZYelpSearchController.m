@@ -199,11 +199,20 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     // enable location tracking for local search
     [AZLocationManager setDelegate:self];
     
-    // mark this controller as the handler for navigation bar searches
-    [[self yelpNavigationController] enableSearch:self];
-    
     [self clearResults];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[self yelpNavigationController] enableSearch:self];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[self yelpNavigationController] disableSearch];
 }
 
 - (void)didReceiveMemoryWarning

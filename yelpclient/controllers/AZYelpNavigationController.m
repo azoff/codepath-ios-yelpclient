@@ -8,10 +8,12 @@
 
 #import "AZYelpNavigationController.h"
 #import "AZYelpSearchController.h"
+#import "AZYelpSearchBar.h"
+#import "AZYelpFilterController.h"
 
 @interface AZYelpNavigationController ()
 
-@property (nonatomic) UITextField *searchField;
+@property (nonatomic) AZYelpSearchBar *searchBar;
 @property (nonatomic) id<AZYelpNavigationSearchHandler> searchTermDelegate;
 
 @end
@@ -25,32 +27,38 @@
     return self;
 }
 
-- (UITextField *)searchField
+- (AZYelpSearchBar *)searchBar
 {
-    if (_searchField != nil)
-        return _searchField;
-    _searchField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
-    _searchField.delegate = self;
-    _searchField.hidden = YES;
-    [self.navigationBar addSubview:_searchField];
-    return _searchField;
+    if (_searchBar != nil)
+        return _searchBar;
+    _searchBar = [[AZYelpSearchBar alloc] init];
+    [self.navigationBar addSubview:_searchBar.view];
+    return _searchBar;
+}
+
+- (IBAction)onFilterButton
+{
+    [self pushViewController:[[AZYelpFilterController alloc] init] animated:YES];
 }
 
 - (void)enableSearch:(id<AZYelpNavigationSearchHandler>)delegate
 {
+    [self.searchBar.filterButton addTarget:self action:@selector(onFilterButton) forControlEvents:UIControlEventTouchUpInside];
+    self.searchBar.searchField.delegate = self;
     self.searchTermDelegate = delegate;
-    self.searchField.hidden = NO;
+    self.searchBar.view.hidden = NO;
 }
 
 - (void)disableSearch
 {
+    self.searchBar.searchField.delegate = nil;
     self.searchTermDelegate = nil;
-    self.searchField.hidden = YES;
+    self.searchBar.view.hidden = YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self.searchField endEditing:YES];
+    [textField endEditing:YES];
     if (self.searchTermDelegate != nil)
         return [self.searchTermDelegate handleSearchTerm:textField.text];
     return NO;
@@ -59,7 +67,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self disableSearch];
 }
 
 - (void)didReceiveMemoryWarning

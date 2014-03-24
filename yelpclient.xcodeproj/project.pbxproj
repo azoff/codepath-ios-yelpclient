@@ -25,6 +25,14 @@
 		C981837418DF727500E2BA7B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C981837318DF727500E2BA7B /* CoreLocation.framework */; };
 		C981837818DF8F5B00E2BA7B /* AZYelpNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981837618DF8F5B00E2BA7B /* AZYelpNavigationController.m */; };
 		C981837918DF8F5B00E2BA7B /* AZYelpNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981837618DF8F5B00E2BA7B /* AZYelpNavigationController.m */; };
+		C981837F18DF9A6300E2BA7B /* AZYelpSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C981837D18DF9A6300E2BA7B /* AZYelpSearchBar.m */; };
+		C981838018DF9A6300E2BA7B /* AZYelpSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = C981837D18DF9A6300E2BA7B /* AZYelpSearchBar.m */; };
+		C981838118DF9A6300E2BA7B /* AZYelpSearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981837E18DF9A6300E2BA7B /* AZYelpSearchBar.xib */; };
+		C981838218DF9A6300E2BA7B /* AZYelpSearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981837E18DF9A6300E2BA7B /* AZYelpSearchBar.xib */; };
+		C981838918DFAC0700E2BA7B /* AZYelpFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981838718DFAC0700E2BA7B /* AZYelpFilterController.m */; };
+		C981838A18DFAC0700E2BA7B /* AZYelpFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981838718DFAC0700E2BA7B /* AZYelpFilterController.m */; };
+		C981838B18DFAC0700E2BA7B /* AZYelpFilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981838818DFAC0700E2BA7B /* AZYelpFilterController.xib */; };
+		C981838C18DFAC0700E2BA7B /* AZYelpFilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981838818DFAC0700E2BA7B /* AZYelpFilterController.xib */; };
 		C9DCDB7818DAAE5C006E587F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7718DAAE5B006E587F /* Foundation.framework */; };
 		C9DCDB7A18DAAE5C006E587F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */; };
 		C9DCDB7C18DAAE5C006E587F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7B18DAAE5C006E587F /* UIKit.framework */; };
@@ -73,6 +81,12 @@
 		C981837318DF727500E2BA7B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C981837518DF8F5B00E2BA7B /* AZYelpNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpNavigationController.h; path = controllers/AZYelpNavigationController.h; sourceTree = "<group>"; };
 		C981837618DF8F5B00E2BA7B /* AZYelpNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpNavigationController.m; path = controllers/AZYelpNavigationController.m; sourceTree = "<group>"; };
+		C981837C18DF9A6300E2BA7B /* AZYelpSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpSearchBar.h; path = views/AZYelpSearchBar.h; sourceTree = "<group>"; };
+		C981837D18DF9A6300E2BA7B /* AZYelpSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpSearchBar.m; path = views/AZYelpSearchBar.m; sourceTree = "<group>"; };
+		C981837E18DF9A6300E2BA7B /* AZYelpSearchBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpSearchBar.xib; path = views/AZYelpSearchBar.xib; sourceTree = "<group>"; };
+		C981838618DFAC0700E2BA7B /* AZYelpFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpFilterController.h; path = controllers/AZYelpFilterController.h; sourceTree = "<group>"; };
+		C981838718DFAC0700E2BA7B /* AZYelpFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpFilterController.m; path = controllers/AZYelpFilterController.m; sourceTree = "<group>"; };
+		C981838818DFAC0700E2BA7B /* AZYelpFilterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpFilterController.xib; path = controllers/AZYelpFilterController.xib; sourceTree = "<group>"; };
 		C9DCDB7418DAAE5B006E587F /* yelpclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yelpclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DCDB7718DAAE5B006E587F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -154,6 +168,9 @@
 				C981835118DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.h */,
 				C981835218DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m */,
 				C981835318DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib */,
+				C981837C18DF9A6300E2BA7B /* AZYelpSearchBar.h */,
+				C981837D18DF9A6300E2BA7B /* AZYelpSearchBar.m */,
+				C981837E18DF9A6300E2BA7B /* AZYelpSearchBar.xib */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -166,6 +183,9 @@
 				C981835918DE0BCE00E2BA7B /* AZYelpSearchController.xib */,
 				C981837518DF8F5B00E2BA7B /* AZYelpNavigationController.h */,
 				C981837618DF8F5B00E2BA7B /* AZYelpNavigationController.m */,
+				C981838618DFAC0700E2BA7B /* AZYelpFilterController.h */,
+				C981838718DFAC0700E2BA7B /* AZYelpFilterController.m */,
+				C981838818DFAC0700E2BA7B /* AZYelpFilterController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -339,9 +359,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C981838118DF9A6300E2BA7B /* AZYelpSearchBar.xib in Resources */,
 				C9DCDB8218DAAE5C006E587F /* InfoPlist.strings in Resources */,
 				C981835C18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */,
 				C9DCDB8A18DAAE5C006E587F /* Images.xcassets in Resources */,
+				C981838B18DFAC0700E2BA7B /* AZYelpFilterController.xib in Resources */,
 				C981835518DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +372,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C981838218DF9A6300E2BA7B /* AZYelpSearchBar.xib in Resources */,
 				C9DCDB9B18DAAE5C006E587F /* InfoPlist.strings in Resources */,
+				C981838C18DFAC0700E2BA7B /* AZYelpFilterController.xib in Resources */,
 				C981835D18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,11 +419,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C981837F18DF9A6300E2BA7B /* AZYelpSearchBar.m in Sources */,
 				C981835418DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m in Sources */,
 				C981837118DF6C0700E2BA7B /* AZLocationManager.m in Sources */,
 				C981833618DBB80400E2BA7B /* AZYelpBusiness.m in Sources */,
 				C981833118DAD06A00E2BA7B /* AZYelpClient.m in Sources */,
 				C9DCDB8418DAAE5C006E587F /* main.m in Sources */,
+				C981838918DFAC0700E2BA7B /* AZYelpFilterController.m in Sources */,
 				C981836818DE77D700E2BA7B /* AZYelpLocation.m in Sources */,
 				C9DCDB8818DAAE5C006E587F /* AZAppDelegate.m in Sources */,
 				C981837818DF8F5B00E2BA7B /* AZYelpNavigationController.m in Sources */,
@@ -413,7 +439,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C981838018DF9A6300E2BA7B /* AZYelpSearchBar.m in Sources */,
 				C9DCDB9D18DAAE5C006E587F /* AZYelpClientTest.m in Sources */,
+				C981838A18DFAC0700E2BA7B /* AZYelpFilterController.m in Sources */,
 				C981837918DF8F5B00E2BA7B /* AZYelpNavigationController.m in Sources */,
 				C981836918DE77D700E2BA7B /* AZYelpLocation.m in Sources */,
 				C981835B18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */,

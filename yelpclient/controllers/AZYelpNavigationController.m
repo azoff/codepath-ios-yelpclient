@@ -70,6 +70,13 @@
 {
     [super viewDidLoad];
     [self disableSearch];
+    id g = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditing)];
+    [self.view addGestureRecognizer:g];
+}
+
+- (IBAction)endEditing
+{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning

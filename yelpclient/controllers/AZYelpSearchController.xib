@@ -22,6 +22,7 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="nZd-9P-Ugd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mc3-M3-RwR"/>
                 <constraint firstItem="nZd-9P-Ugd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PMP-z4-ula"/>
@@ -35,5 +36,6 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <tapGestureRecognizer id="73m-Of-qYq"/>
     </objects>
 </document>

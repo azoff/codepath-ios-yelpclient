@@ -5,10 +5,10 @@
 //  Created by Jonathan Azoff on 3/21/14.
 //  Copyright (c) 2014 Jonathan Azoff. All rights reserved.
 //
-#import "AZYelpBusinessTableViewCell.h"
+#import "AZYelpBusinessCell.h"
 #import "UIImageView+AFNetworking.h"
 
-@interface AZYelpBusinessTableViewCell ()
+@interface AZYelpBusinessCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *thumbImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *ratingImageView;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation AZYelpBusinessTableViewCell
+@implementation AZYelpBusinessCell
 
 - (void)updateBusiness:(AZYelpBusiness *)business onError:(void (^)(NSError *))errorHandler
 {

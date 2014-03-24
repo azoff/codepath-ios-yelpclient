@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AZYelpBusiness.h"
 
-@interface AZYelpBusinessTableViewCell : UITableViewCell
+@interface AZYelpBusinessCell : UITableViewCell
 
 - (void)updateBusiness:(AZYelpBusiness *)business onError:(void (^)(NSError *))errorHandler;
 

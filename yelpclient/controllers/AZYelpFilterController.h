@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AZYelpFilterCell.h"
 
-@interface AZYelpFilterController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface AZYelpFilterController : UIViewController<UITableViewDataSource, UITableViewDelegate, AZYelpFilterCellToggleDelegate>
 
 @end

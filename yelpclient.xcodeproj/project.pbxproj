@@ -12,8 +12,8 @@
 		C981833618DBB80400E2BA7B /* AZYelpBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = C981833518DBB80400E2BA7B /* AZYelpBusiness.m */; };
 		C981833918DC0DDE00E2BA7B /* AZYelpSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C981833818DC0DDE00E2BA7B /* AZYelpSearchResult.m */; };
 		C981834F18DD00F800E2BA7B /* AZYelpError.m in Sources */ = {isa = PBXBuildFile; fileRef = C981834E18DD00F800E2BA7B /* AZYelpError.m */; };
-		C981835418DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C981835218DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m */; };
-		C981835518DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981835318DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib */; };
+		C981835418DD3E9100E2BA7B /* AZYelpBusinessCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C981835218DD3E9100E2BA7B /* AZYelpBusinessCell.m */; };
+		C981835518DD3E9100E2BA7B /* AZYelpBusinessCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981835318DD3E9100E2BA7B /* AZYelpBusinessCell.xib */; };
 		C981835A18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981835818DE0BCE00E2BA7B /* AZYelpSearchController.m */; };
 		C981835B18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981835818DE0BCE00E2BA7B /* AZYelpSearchController.m */; };
 		C981835C18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981835918DE0BCE00E2BA7B /* AZYelpSearchController.xib */; };
@@ -33,8 +33,14 @@
 		C981838A18DFAC0700E2BA7B /* AZYelpFilterController.m in Sources */ = {isa = PBXBuildFile; fileRef = C981838718DFAC0700E2BA7B /* AZYelpFilterController.m */; };
 		C981838B18DFAC0700E2BA7B /* AZYelpFilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981838818DFAC0700E2BA7B /* AZYelpFilterController.xib */; };
 		C981838C18DFAC0700E2BA7B /* AZYelpFilterController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981838818DFAC0700E2BA7B /* AZYelpFilterController.xib */; };
-		C981838E18DFB3E400E2BA7B /* filterValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = C981838D18DFB3E400E2BA7B /* filterValues.plist */; };
-		C981838F18DFB3E400E2BA7B /* filterValues.plist in Resources */ = {isa = PBXBuildFile; fileRef = C981838D18DFB3E400E2BA7B /* filterValues.plist */; };
+		C981838E18DFB3E400E2BA7B /* filters.plist in Resources */ = {isa = PBXBuildFile; fileRef = C981838D18DFB3E400E2BA7B /* filters.plist */; };
+		C981838F18DFB3E400E2BA7B /* filters.plist in Resources */ = {isa = PBXBuildFile; fileRef = C981838D18DFB3E400E2BA7B /* filters.plist */; };
+		C981839E18DFE49700E2BA7B /* AZYelpFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C981839C18DFE49700E2BA7B /* AZYelpFilterCell.m */; };
+		C981839F18DFE49700E2BA7B /* AZYelpFilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C981839C18DFE49700E2BA7B /* AZYelpFilterCell.m */; };
+		C98183A018DFE49700E2BA7B /* AZYelpFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981839D18DFE49700E2BA7B /* AZYelpFilterCell.xib */; };
+		C98183A118DFE49700E2BA7B /* AZYelpFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C981839D18DFE49700E2BA7B /* AZYelpFilterCell.xib */; };
+		C98183A818E01F8500E2BA7B /* AZYelpFilterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C98183A718E01F8500E2BA7B /* AZYelpFilterLabel.m */; };
+		C98183A918E01F8500E2BA7B /* AZYelpFilterLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C98183A718E01F8500E2BA7B /* AZYelpFilterLabel.m */; };
 		C9DCDB7818DAAE5C006E587F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7718DAAE5B006E587F /* Foundation.framework */; };
 		C9DCDB7A18DAAE5C006E587F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */; };
 		C9DCDB7C18DAAE5C006E587F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9DCDB7B18DAAE5C006E587F /* UIKit.framework */; };
@@ -70,9 +76,9 @@
 		C981833818DC0DDE00E2BA7B /* AZYelpSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpSearchResult.m; path = models/AZYelpSearchResult.m; sourceTree = "<group>"; };
 		C981834D18DD00F800E2BA7B /* AZYelpError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpError.h; path = models/AZYelpError.h; sourceTree = "<group>"; };
 		C981834E18DD00F800E2BA7B /* AZYelpError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpError.m; path = models/AZYelpError.m; sourceTree = "<group>"; };
-		C981835118DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpBusinessTableViewCell.h; path = views/AZYelpBusinessTableViewCell.h; sourceTree = "<group>"; };
-		C981835218DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpBusinessTableViewCell.m; path = views/AZYelpBusinessTableViewCell.m; sourceTree = "<group>"; };
-		C981835318DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpBusinessTableViewCell.xib; path = views/AZYelpBusinessTableViewCell.xib; sourceTree = "<group>"; };
+		C981835118DD3E9100E2BA7B /* AZYelpBusinessCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpBusinessCell.h; path = views/AZYelpBusinessCell.h; sourceTree = "<group>"; };
+		C981835218DD3E9100E2BA7B /* AZYelpBusinessCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpBusinessCell.m; path = views/AZYelpBusinessCell.m; sourceTree = "<group>"; };
+		C981835318DD3E9100E2BA7B /* AZYelpBusinessCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpBusinessCell.xib; path = views/AZYelpBusinessCell.xib; sourceTree = "<group>"; };
 		C981835718DE0BCE00E2BA7B /* AZYelpSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpSearchController.h; path = controllers/AZYelpSearchController.h; sourceTree = "<group>"; };
 		C981835818DE0BCE00E2BA7B /* AZYelpSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpSearchController.m; path = controllers/AZYelpSearchController.m; sourceTree = "<group>"; };
 		C981835918DE0BCE00E2BA7B /* AZYelpSearchController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpSearchController.xib; path = controllers/AZYelpSearchController.xib; sourceTree = "<group>"; };
@@ -89,7 +95,12 @@
 		C981838618DFAC0700E2BA7B /* AZYelpFilterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpFilterController.h; path = controllers/AZYelpFilterController.h; sourceTree = "<group>"; };
 		C981838718DFAC0700E2BA7B /* AZYelpFilterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpFilterController.m; path = controllers/AZYelpFilterController.m; sourceTree = "<group>"; };
 		C981838818DFAC0700E2BA7B /* AZYelpFilterController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpFilterController.xib; path = controllers/AZYelpFilterController.xib; sourceTree = "<group>"; };
-		C981838D18DFB3E400E2BA7B /* filterValues.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = filterValues.plist; path = yelpclientTests/filterValues.plist; sourceTree = SOURCE_ROOT; };
+		C981838D18DFB3E400E2BA7B /* filters.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = filters.plist; path = yelpclientTests/filters.plist; sourceTree = SOURCE_ROOT; };
+		C981839B18DFE49700E2BA7B /* AZYelpFilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpFilterCell.h; path = views/AZYelpFilterCell.h; sourceTree = "<group>"; };
+		C981839C18DFE49700E2BA7B /* AZYelpFilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpFilterCell.m; path = views/AZYelpFilterCell.m; sourceTree = "<group>"; };
+		C981839D18DFE49700E2BA7B /* AZYelpFilterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AZYelpFilterCell.xib; path = views/AZYelpFilterCell.xib; sourceTree = "<group>"; };
+		C98183A618E01F8500E2BA7B /* AZYelpFilterLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AZYelpFilterLabel.h; path = views/AZYelpFilterLabel.h; sourceTree = "<group>"; };
+		C98183A718E01F8500E2BA7B /* AZYelpFilterLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AZYelpFilterLabel.m; path = views/AZYelpFilterLabel.m; sourceTree = "<group>"; };
 		C9DCDB7418DAAE5B006E587F /* yelpclient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yelpclient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9DCDB7718DAAE5B006E587F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9DCDB7918DAAE5C006E587F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -168,12 +179,17 @@
 		C981835018DD3E4A00E2BA7B /* views */ = {
 			isa = PBXGroup;
 			children = (
-				C981835118DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.h */,
-				C981835218DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m */,
-				C981835318DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib */,
+				C981835118DD3E9100E2BA7B /* AZYelpBusinessCell.h */,
+				C981835218DD3E9100E2BA7B /* AZYelpBusinessCell.m */,
+				C981835318DD3E9100E2BA7B /* AZYelpBusinessCell.xib */,
 				C981837C18DF9A6300E2BA7B /* AZYelpSearchBar.h */,
 				C981837D18DF9A6300E2BA7B /* AZYelpSearchBar.m */,
 				C981837E18DF9A6300E2BA7B /* AZYelpSearchBar.xib */,
+				C981839B18DFE49700E2BA7B /* AZYelpFilterCell.h */,
+				C981839C18DFE49700E2BA7B /* AZYelpFilterCell.m */,
+				C981839D18DFE49700E2BA7B /* AZYelpFilterCell.xib */,
+				C98183A618E01F8500E2BA7B /* AZYelpFilterLabel.h */,
+				C98183A718E01F8500E2BA7B /* AZYelpFilterLabel.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -255,7 +271,7 @@
 		C9DCDB7E18DAAE5C006E587F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C981838D18DFB3E400E2BA7B /* filterValues.plist */,
+				C981838D18DFB3E400E2BA7B /* filters.plist */,
 				C9DCDB7F18DAAE5C006E587F /* yelpclient-Info.plist */,
 				C9DCDB8018DAAE5C006E587F /* InfoPlist.strings */,
 				C9DCDB8318DAAE5C006E587F /* main.m */,
@@ -363,13 +379,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C98183A018DFE49700E2BA7B /* AZYelpFilterCell.xib in Resources */,
 				C981838118DF9A6300E2BA7B /* AZYelpSearchBar.xib in Resources */,
 				C9DCDB8218DAAE5C006E587F /* InfoPlist.strings in Resources */,
 				C981835C18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */,
 				C9DCDB8A18DAAE5C006E587F /* Images.xcassets in Resources */,
 				C981838B18DFAC0700E2BA7B /* AZYelpFilterController.xib in Resources */,
-				C981835518DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.xib in Resources */,
-				C981838E18DFB3E400E2BA7B /* filterValues.plist in Resources */,
+				C981835518DD3E9100E2BA7B /* AZYelpBusinessCell.xib in Resources */,
+				C981838E18DFB3E400E2BA7B /* filters.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +396,8 @@
 			files = (
 				C981838218DF9A6300E2BA7B /* AZYelpSearchBar.xib in Resources */,
 				C9DCDB9B18DAAE5C006E587F /* InfoPlist.strings in Resources */,
-				C981838F18DFB3E400E2BA7B /* filterValues.plist in Resources */,
+				C98183A118DFE49700E2BA7B /* AZYelpFilterCell.xib in Resources */,
+				C981838F18DFB3E400E2BA7B /* filters.plist in Resources */,
 				C981838C18DFAC0700E2BA7B /* AZYelpFilterController.xib in Resources */,
 				C981835D18DE0BCE00E2BA7B /* AZYelpSearchController.xib in Resources */,
 			);
@@ -426,7 +444,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C981837F18DF9A6300E2BA7B /* AZYelpSearchBar.m in Sources */,
-				C981835418DD3E9100E2BA7B /* AZYelpBusinessTableViewCell.m in Sources */,
+				C981835418DD3E9100E2BA7B /* AZYelpBusinessCell.m in Sources */,
+				C98183A818E01F8500E2BA7B /* AZYelpFilterLabel.m in Sources */,
+				C981839E18DFE49700E2BA7B /* AZYelpFilterCell.m in Sources */,
 				C981837118DF6C0700E2BA7B /* AZLocationManager.m in Sources */,
 				C981833618DBB80400E2BA7B /* AZYelpBusiness.m in Sources */,
 				C981833118DAD06A00E2BA7B /* AZYelpClient.m in Sources */,
@@ -445,10 +465,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C981839F18DFE49700E2BA7B /* AZYelpFilterCell.m in Sources */,
 				C981838018DF9A6300E2BA7B /* AZYelpSearchBar.m in Sources */,
 				C9DCDB9D18DAAE5C006E587F /* AZYelpClientTest.m in Sources */,
 				C981838A18DFAC0700E2BA7B /* AZYelpFilterController.m in Sources */,
 				C981837918DF8F5B00E2BA7B /* AZYelpNavigationController.m in Sources */,
+				C98183A918E01F8500E2BA7B /* AZYelpFilterLabel.m in Sources */,
 				C981836918DE77D700E2BA7B /* AZYelpLocation.m in Sources */,
 				C981835B18DE0BCE00E2BA7B /* AZYelpSearchController.m in Sources */,
 				C981837218DF6C0700E2BA7B /* AZLocationManager.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "AZYelpSearchController.h"
-#import "AZYelpBusinessTableViewCell.h"
+#import "AZYelpBusinessCell.h"
 #import "AZYelpBusiness.h"
 #import "AZYelpClient.h"
 #import "AZLocationManager.h"
@@ -15,7 +15,7 @@
 
 static NSInteger const SCROLL_THRESHOLD = 5;
 static NSInteger const LIMIT            = 20;
-static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
+static NSString *const CELL_NAME        = @"AZYelpBusinessCell";
 
 @interface AZYelpSearchController ()
 
@@ -25,9 +25,9 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
 @property (nonatomic) NSInteger offset;
 @property (nonatomic) NSInteger total;
 @property (nonatomic) NSMutableArray *results;
-@property (nonatomic) NSString *term;
 @property (nonatomic) UIFont *nameFont;
 @property (nonatomic) CLLocation *location;
+@property (nonatomic) NSString *term;
 
 @end
 
@@ -38,7 +38,7 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     [self.results removeAllObjects];
     self.offset  = 0;
     self.total   = 0;
-    self.term    = nil;
+    self.term    = [[NSUserDefaults standardUserDefaults] valueForKey:@"term"];
     [self renderResults];
 }
 
@@ -75,12 +75,28 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
 - (NSDictionary *)getParams
 {
     CLLocationCoordinate2D location = self.location.coordinate;
-    return @{
+    id params = [NSMutableDictionary dictionaryWithDictionary: @{
         @"term": self.term,
         @"limit": [[NSNumber numberWithInt:LIMIT] stringValue],
         @"offset": [[NSNumber numberWithInteger:self.offset] stringValue],
         @"ll": [NSString stringWithFormat:@"%f,%f", location.latitude, location.longitude]
-    };
+    }];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray *defaultKeys = @[@"radius_filter", @"sort", @"deals_filter"];
+    [defaultKeys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *value = [userDefaults objectForKey:obj];
+        if (value != nil && value.length > 0)
+            [params setValue:value forKey:obj];
+    }];
+    NSLog(@"%@", params);
+    return params;
+}
+
+- (void)setTerm:(NSString *)term
+{
+    _term = term;
+    [[NSUserDefaults standardUserDefaults] setValue:term forKey:@"term"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)doSearch:(BOOL)showIndicator
@@ -138,7 +154,7 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     if (self.results.count < self.total && indexPath.item >= (self.results.count - SCROLL_THRESHOLD))
         [self doSearch:NO];
     
-    AZYelpBusinessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_NAME forIndexPath:indexPath];
+    AZYelpBusinessCell *cell = [tableView dequeueReusableCellWithIdentifier:CELL_NAME forIndexPath:indexPath];
     AZYelpBusiness *business = [self.results objectAtIndex:indexPath.item];
     [cell updateBusiness:business onError:^(NSError *error) {
         [self showError:error];
@@ -193,7 +209,7 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     [self.searchResultsTableView registerNib:[UINib nibWithNibName:CELL_NAME bundle:[NSBundle mainBundle]] forCellReuseIdentifier:CELL_NAME];
     
     // prototype cell for dynamic cell height measurements
-    AZYelpBusinessTableViewCell *dummyCell = [self.searchResultsTableView dequeueReusableCellWithIdentifier:CELL_NAME];
+    AZYelpBusinessCell *dummyCell = [self.searchResultsTableView dequeueReusableCellWithIdentifier:CELL_NAME];
     self.nameFont = dummyCell.nameLabel.font;
     
     // enable location tracking for local search
@@ -207,6 +223,8 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
 {
     [super viewWillAppear:animated];
     [[self yelpNavigationController] enableSearch:self];
+    [self clearResults];
+    [self doSearch:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated

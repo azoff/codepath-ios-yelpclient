@@ -30,6 +30,7 @@ static NSString *const CELL_NAME = @"AZYelpFilterCell";
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.title = @"Filters";
         NSString *file = [[NSBundle mainBundle] pathForResource:@"filters" ofType:@"plist"];
         self.sections          = [NSDictionary dictionaryWithContentsOfFile:file];
         self.sectionOpenStates = [NSMutableArray array];

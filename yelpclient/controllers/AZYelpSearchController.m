@@ -28,6 +28,7 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessCell";
 @property (nonatomic) UIFont *nameFont;
 @property (nonatomic) CLLocation *location;
 @property (nonatomic) NSString *term;
+@property (nonatomic) NSArray *categories;
 
 @end
 
@@ -88,6 +89,14 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessCell";
         if (value != nil && value.length > 0)
             [params setValue:value forKey:obj];
     }];
+    NSMutableArray *categories = [NSMutableArray array];
+    [self.categories enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *value = [userDefaults objectForKey:obj];
+        if (value != nil)
+            [categories addObject:obj];
+    }];
+    if (categories.count > 0)
+        [params setValue:[categories componentsJoinedByString:@","] forKey:@"category_filter"];
     NSLog(@"%@", params);
     return params;
 }
@@ -185,11 +194,15 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessCell";
     if (firstTime) [self doSearch:YES];
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)init
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
+    self = [super init];
+    if (self) {
+        self.title = @"Search";
         self.results = [[NSMutableArray alloc] init];
+        NSString *file = [[NSBundle mainBundle] pathForResource:@"categories" ofType:@"plist"];
+        self.categories = [NSArray arrayWithContentsOfFile:file];
+    }
     return self;
 }
 

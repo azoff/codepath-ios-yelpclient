@@ -27,6 +27,7 @@
 
 - (id)initWithName:(NSString *)name indexPath:(NSIndexPath *)indexPath on:(BOOL)on
 {
+    self.accessoryType = UITableViewCellAccessoryNone;
     self.filterSwitch.hidden = NO;
     self.filterSwitch.on = on;
     _indexPath = indexPath;

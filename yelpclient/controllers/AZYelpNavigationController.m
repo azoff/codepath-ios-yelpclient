@@ -47,6 +47,7 @@
     self.searchBar.searchField.delegate = self;
     self.searchTermDelegate = delegate;
     self.searchBar.view.hidden = NO;
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor clearColor]};
 }
 
 - (void)disableSearch
@@ -54,6 +55,7 @@
     self.searchBar.searchField.delegate = nil;
     self.searchTermDelegate = nil;
     self.searchBar.view.hidden = YES;
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor darkTextColor]};
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField

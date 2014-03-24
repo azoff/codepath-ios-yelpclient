@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AZYelpFilterController : UIViewController
+@interface AZYelpFilterController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

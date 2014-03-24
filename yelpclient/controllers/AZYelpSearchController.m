@@ -215,10 +215,4 @@ static NSString *const CELL_NAME        = @"AZYelpBusinessTableViewCell";
     [[self yelpNavigationController] disableSearch];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    [[self yelpNavigationController] disableSearch];
-}
-
 @end

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>values</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Best Match</string>
+				<key>value</key>
+				<integer>0</integer>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Distance</string>
+				<key>value</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Highest Rated</string>
+				<key>value</key>
+				<integer>2</integer>
+			</dict>
+		</array>
+		<key>name</key>
+		<string>Sort By</string>
+		<key>param</key>
+		<string>sort</string>
+	</dict>
+	<dict>
+		<key>values</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>2 Blocks</string>
+				<key>value</key>
+				<integer>160</integer>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>6 Blocks</string>
+				<key>value</key>
+				<integer>480</integer>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>1 Mile</string>
+				<key>value</key>
+				<integer>1609</integer>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>5 Miles</string>
+				<key>value</key>
+				<integer>8046</integer>
+			</dict>
+		</array>
+		<key>name</key>
+		<string>Distance</string>
+		<key>param</key>
+		<string>radius_filter</string>
+	</dict>
+	<dict>
+		<key>values</key>
+		<array>
+			<dict>
+				<key>name</key>
+				<string>Active Life</string>
+				<key>value</key>
+				<string>active</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Arts &amp; Entertainment</string>
+				<key>value</key>
+				<string>arts</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Automotive</string>
+				<key>value</key>
+				<string>auto</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Beauty &amp; Spas</string>
+				<key>value</key>
+				<string>beautysvc</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Education</string>
+				<key>value</key>
+				<string>education</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Event Planning &amp; Services</string>
+				<key>value</key>
+				<string>eventservices</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Financial Services</string>
+				<key>value</key>
+				<string>financialservices</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Food</string>
+				<key>value</key>
+				<string>food</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Health &amp; Medical</string>
+				<key>value</key>
+				<string>health</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Home Services</string>
+				<key>value</key>
+				<string>homeservices</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Hotels &amp; Travel</string>
+				<key>value</key>
+				<string>hotelstravel</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Local Flavor</string>
+				<key>value</key>
+				<string>localflavor</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Local Services</string>
+				<key>value</key>
+				<string>localservices</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Mass Media</string>
+				<key>value</key>
+				<string>massmedia</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Nightlife</string>
+				<key>value</key>
+				<string>nightlife</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Pets</string>
+				<key>value</key>
+				<string>pets</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Professional Services</string>
+				<key>value</key>
+				<string>professional</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Public Services &amp; Government</string>
+				<key>value</key>
+				<string>publicservicesgovt</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Real Estate</string>
+				<key>value</key>
+				<string>realestate</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Religious Organizations</string>
+				<key>value</key>
+				<string>religiousorgs</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Restaurants</string>
+				<key>value</key>
+				<string>restaurants</string>
+			</dict>
+			<dict>
+				<key>name</key>
+				<string>Shopping</string>
+				<key>value</key>
+				<string>shopping</string>
+			</dict>
+		</array>
+		<key>name</key>
+		<string>Categories</string>
+		<key>param</key>
+		<string>category_filter</string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Offering A Deal</string>
+		<key>param</key>
+		<string>deals_filter</string>
+	</dict>
+</array>
+</plist>
